@@ -1,0 +1,56 @@
+$def with(result)
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <body>
+    <!--Vista inicial-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Lista</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Page Content -->
+    <main role="main" class="container my-auto">
+      <br></br>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Matricula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Primer Apellido</th>
+              <th scope="col">Segundo Apellido</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Fecha de Nacimiento</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            $for row in result:
+              <tr>
+                <td><a href="/view/$row['matricula']">$row['matricula']</a></td>
+                <td>$row['nombre']</td>
+                <td>$row['apellido_paterno']</td>
+                <td>$row['apellido_materno']</td>
+                <td>$row['edad']</td>
+                <td>$row['fecha_nacimiento']</td>
+                <td>$row['sexo']</td>
+                <td>$row['estado_civil']</td>
+                <td><a href="/update/$row['matricula']"><button type="button" class="btn" style="background: #00FF00">Update</button></a></td>
+                <td><a href="/delete/$row['matricula']"><button type="button" class="btn" style="background: #FF0000">Delete</button></a></td>
+              </tr>
+            </tbody>
+        </table>
+
+    <div style="width: 500px;">
+
+        <a href="/"><button type="button" class="btn" style="background:#C0C0C0">Regresar</button></a>
+    </div>
+
+  </body>
+</html>
